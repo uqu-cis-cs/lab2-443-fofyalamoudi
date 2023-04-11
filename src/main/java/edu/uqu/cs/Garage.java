@@ -11,7 +11,11 @@ import java.util.Scanner;
 
 public class Garage{
 
-    /************ Part 1 **************/
+    private Car[] cars = new Car[3];
+    public static int countCars = 0;
+
+
+    /**** Part 1 ******/
     /**
      * Decalre an instance variable named cars
      * as an array of Car type
@@ -22,7 +26,7 @@ public class Garage{
      *
      */
 
-    /************ Part 2 **************/
+    /**** Part 2 ******/
     /**
      * Decalre a static/class variable named countCars
      * Make sure its public
@@ -32,7 +36,7 @@ public class Garage{
      *
      */
 
-    /************ Part 3 **************/
+    /**** Part 3 ******/
     /**
      * Define a default constructor to create
      * all the elements of cars
@@ -46,7 +50,7 @@ public class Garage{
      *}
      */
 
-    /************ Part 4 **************/
+    /**** Part 4 ******/
     /**
      * Define addCar(String parameter) that adds a new car (by model) to the garage 
      * and set its flag to true; 
@@ -61,7 +65,7 @@ public class Garage{
      */
 
 
-    /************ Part 5 **************/
+    /**** Part 5 ******/
     /**
      * Define moveOut(String) that moves the car (by model) out of the garage; 
      * hint you must first search if the car is in the list of cars, 
@@ -74,7 +78,7 @@ public class Garage{
 
 
 
-    /************ Part 6 **************/
+    /**** Part 6 ******/
     /**
      * Define moveOut(String) that moves the car (by model) into the garage; 
      * hint you must first search if the car is in the list of cars, 
@@ -86,7 +90,7 @@ public class Garage{
      */
 
 
-    /************ Part 7 **************/
+    /**** Part 7 ******/
     /**
      * Define listCars() to display/list all the cars in the garage;
      * Note: method returns NO data
@@ -95,6 +99,51 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+    public Garage(){
+        for(int i=0;i<cars.length;i++){
+            cars[i]=new Car();
+        }
+    }
+    public void addCar(String m){
+        boolean check=false;
+        for (int i=0;i<cars.length;i++){
+            if (cars[i].getModel().equalsIgnoreCase(m)){
+              check=true;
+            }
+        }
+        if (check == false){
+            cars[countCars].setModel(m);
+            cars[countCars].moveCarIn();
+            countCars++;
+
+        }
+    }
+    public void moveOut(String m){
+        for (int i=0;i<cars.length;i++){
+            if (cars[i].getModel().equalsIgnoreCase(m)){
+                cars[i].moveCarOut();
+            }
+        }
+
+    }
+    public void moveIn(String m){
+        for (int i=0;i<cars.length;i++){
+            if (cars[i].getModel().equalsIgnoreCase(m)){
+                cars[i].moveCarIn();
+            }
+        }
+
+    }
+    public void listCars(){
+        System.out.println("All cars in the garage are:");
+        int x=1;
+        for (int i=0;i<cars.length;i++){
+            if (cars[i].getInOutGarage()==true){
+                System.out.println("Car "+(x++)+": "+cars[i].getModel());
+            }
+        }
+        System.out.println();
+    }
 
 
 
