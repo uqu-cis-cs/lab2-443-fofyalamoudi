@@ -18,7 +18,7 @@ public class Home{
 
 	        // Add "Toyota Corolla Cross" in the garage. Hint: use method addCar () of class Garage
                 //HERE
-                garage.addCar("Toyoto Corolla Cross");
+                garage.addCar("Toyota Corolla Cross");
 
                 //List all the cars in the garage. Hint: use method listCars () of class Garage
                 //HERE
